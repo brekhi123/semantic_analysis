@@ -52,35 +52,51 @@ The notebook requires the following Python libraries:
 - `pandas`
 - `scikit-learn`
 - `gensim`
-- `spacy`
+- `spacy` (with `en_core_web_md` model)
 - `mglearn`
 
-Install dependencies with:
-```bash
-conda activate cpsc330
-conda install -c anaconda pandas matplotlib numpy scikit-learn gensim
-conda install -c conda-forge spacy mglearn
-python -m spacy download en_core_web_md
-pip install otter-grader
-```
+## Setup Instructions
+To run the notebook on your own machine, follow these steps:
+
+1. **Install Python**: Ensure Python 3.8 or higher is installed. Download from [python.org](https://www.python.org/downloads/) if needed.
+2. **Create a Virtual Environment** (optional but recommended):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+3. **Install Dependencies**:
+   Install the required libraries using pip:
+   ```bash
+   pip install pandas matplotlib numpy scikit-learn gensim spacy mglearn otter-grader
+   ```
+   Install the spaCy language model:
+   ```bash
+   python -m spacy download en_core_web_md
+   ```
+4. **Verify Installation**: Ensure all libraries are installed by running `pip list` and checking for the listed dependencies.
 
 ## How to Run
 1. **Download Dataset**: The 20 Newsgroups dataset is automatically fetched using `sklearn.datasets.fetch_20newsgroups`. No manual download is required.
-2. **Set Up Environment**: Install the required libraries (see above) in a `cpsc330` conda environment with Python 3.12.0.
-3. **Run Notebook**:
-   - Open `semantic_analysis.ipynb` in Jupyter Notebook or JupyterLab.
-   - Run all cells (`Kernel -> Restart Kernel and Clear All Outputs`, then `Run -> Run All Cells`).
-4. **View Results**: Outputs include word similarity results, cosine similarities, vocabulary checks, bias analyses, topic word lists, document topic assignments, and short answer responses.
-5. **Optional**: Save the preprocessed `df` to a CSV to avoid re-running spaCy preprocessing.
+2. **Download the Notebook**: Clone this repository or download `semantic_analysis.ipynb` to your machine.
+3. **Run Jupyter Notebook**:
+   - Start Jupyter Notebook:
+     ```bash
+     jupyter notebook
+     ```
+   - Open `semantic_analysis.ipynb` in the Jupyter interface.
+4. **Execute the Notebook**:
+   - Run all cells (`Kernel -> Restart Kernel and Clear All Outputs`, then `Run -> Run All Cells`) to execute the code and generate outputs.
+5. **View Results**: Outputs include word similarity results, cosine similarities, vocabulary checks, bias analyses, topic word lists, document topic assignments, and short answer responses.
+6. **Optional**: Save the preprocessed DataFrame to a CSV (e.g., `df.to_csv('preprocessed_data.csv')`) to avoid re-running spaCy preprocessing.
 
 ## Notes
-- Tested with Python 3.12.0 in the `cpsc330` conda environment.
-- Preprocessing may take time due to spaCy; consider saving preprocessed data to a CSV for efficiency.
-- Ensure plots and outputs are rendered for review. Export to PDF or HTML if the notebook is too large for Gradescope.
-- Follow [CPSC 330 submission instructions](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/homework_instructions.md) for submission on Gradescope.
+- **Environment**: Tested with Python 3.12.0, but compatible with Python 3.8 or higher.
+- **Preprocessing Time**: spaCy preprocessing may be slow for the full dataset. Consider saving preprocessed data to a CSV for efficiency.
+- **Output Rendering**: Ensure plots and outputs are rendered correctly. Export to PDF or HTML if the notebook is too large for submission platforms like Gradescope.
+- **Submission**: If submitting for a course, follow the specific submission guidelines (e.g., Gradescope instructions) provided by your instructor.
 
 ## Acknowledgments
 - GloVe embeddings provided by Stanford University.
 - 20 Newsgroups dataset provided by scikit-learn.
-- Code for preprocessing adapted from [CPSC 330 lecture notes](https://github.com/UBC-CS/cpsc330-2024W2).
+- Code for preprocessing adapted from CPSC 330 lecture notes.
 
